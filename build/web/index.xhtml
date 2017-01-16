@@ -8,7 +8,6 @@
     </h:head>
     <h:body>
         <h1>Welcome to Currency Converter!</h1>
-        <p>You have made Selection(s)</p>
         <h3>Make the selection and press submit button</h3>
         <h:form>
             <h:selectOneMenu value="#{currencyBean.homeCurrency}" id="from">
@@ -24,27 +23,22 @@
                 <f:selectItem itemValue="DOLLAR" itemLabel="DOLLAR" />
                 <f:selectItem itemValue="POUNDS" itemLabel="POUNDS" />
             </h:selectOneMenu>
-            <p><h:commandButton value="ShowRate" action="#{currencyBean.rate}"></h:commandButton></p>
+            
             
             
             <p>
-                <h1>Rate</h1>
                 <h:outputLabel for="rateCalculate" rendered="" value="Enter the amount to convert"></h:outputLabel>
-                <h:inputText id="rateCalculate" value="#{currencyBean.rate}"></h:inputText>
-                <p><h:commandButton value="calculate" action="#{currencyBean.rate}"></h:commandButton></p>
+                <h:inputText id="rateCalculate" value="#{currencyBean.money}"></h:inputText>
+                <p><h:commandButton value="calculate" action="#{currencyBean.Convert()}"></h:commandButton></p>
             </p>
         </h:form>
         <p>
             <h1>Result</h1>
-        <h:outputLabel for="showResult" value="The Result of Coversion"/>
-        <h:outputText id="showResult" value="#{currencyBean.homeCurrency}"></h:outputText>
+        <h:outputLabel for="showResult" value="The Result of Coversion: "/>
+        <h:outputText id="showResult" value="#{currencyBean.result}"></h:outputText>
         </p>
         
-        <p>
-            <h1>Rate</h1>
-        <h:outputLabel for="showRate" rendered="" value="The Result of Coversion"/>
-        <h:outputText id="showRate" value="#{currencyBean.rate}"></h:outputText>
-        </p>
+        
     </h:body>
 </html>
 
